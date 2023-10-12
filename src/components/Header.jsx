@@ -16,7 +16,7 @@ function Header() {
         <BiSearchAlt />
         <input
           type="text"
-          className="px-2 bg-transparent outline-none dark:bg-cyan-500"
+          className="px-2 bg-transparent outline-none"
           placeholder="Search Games"
         />
       </div>
@@ -24,12 +24,18 @@ function Header() {
         {theme == "light" ? (
           <BsFillMoonStarsFill
             className="text-[35px] bg-slate-200 text-black p-1 rounded-full cursor-pointer"
-            onClick={() => setTheme("dark")}
+            onClick={() => {
+              setTheme("dark");
+              localStorage.setItem("theme", "dark");
+            }}
           />
         ) : (
           <BsFillCloudSunFill
             className="text-[35px] bg-slate-200 text-black p-1 rounded-full cursor-pointer"
-            onClick={() => setTheme("light")}
+            onClick={() => {
+              setTheme("light");
+              localStorage.setItem("theme", "light");
+            }}
           />
         )}
       </div>
